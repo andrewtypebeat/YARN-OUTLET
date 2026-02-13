@@ -1,3 +1,9 @@
 [gd_scene format=3 uid="uid://cyfnctd8gy867"]
 
+[ext_resource type="PackedScene" uid="uid://cv1fcpq8p643h" path="res://Scenes/Objects/player_main.tscn" id="1_3rcww"]
+
 [node name="Node2D" type="Node2D" unique_id=1782077261]
+
+[node name="PlayerMain" parent="." unique_id=17731177 instance=ExtResource("1_3rcww")]
+position = Vector2(82, 91)
+playerSpeed = 320
