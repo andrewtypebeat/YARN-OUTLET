@@ -2,6 +2,8 @@ extends StaticBody2D
 
 @export var playerSpeed = 200 
 
+var screen_size
+
 enum playerState {
 	#SHIP MODE
 	IDLE,
@@ -16,8 +18,10 @@ enum playerState {
 	WMINTERACT
 }
 
-
-var screen_size
+enum playerMode {
+	SHIP,
+	WALK
+}
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -34,6 +38,8 @@ func _process(delta):
 	
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * playerSpeed
-		
+		playerState.MOVE
+	else:
+		playerState.IDLE
 	position += velocity * delta
 	position = position.clamp(Vector2.ZERO, screen_size)
