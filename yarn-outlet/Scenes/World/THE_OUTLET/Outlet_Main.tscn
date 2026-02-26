@@ -1,24 +1,44 @@
 [gd_scene format=3 uid="uid://bxc8ww1ds0adr"]
 
+[ext_resource type="Texture2D" uid="uid://cay8entkq8mvm" path="res://Assets/Sprites/Background/Outlet/yarn_main.png" id="1_b4hs7"]
 [ext_resource type="PackedScene" uid="uid://b2frgu0nv8rsn" path="res://Scenes/Objects/Player/player_walk.tscn" id="1_f3w6n"]
 [ext_resource type="Texture2D" uid="uid://8sn80g7ubh4w" path="res://icon.svg" id="2_f3w6n"]
+[ext_resource type="Texture2D" uid="uid://dy74u8t0xq702" path="res://Assets/Sprites/Character/spr_bigcat.png" id="4_lhbpg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b4hs7"]
-size = Vector2(424, 128)
+size = Vector2(1128, 32)
 
 [node name="OutletMain" type="Node2D" unique_id=768598864]
 
+[node name="NPC" type="Node" parent="." unique_id=661558963]
+
+[node name="BigCat" type="StaticBody2D" parent="NPC" unique_id=1596998465]
+position = Vector2(480, 184)
+
+[node name="Sprite2D" type="Sprite2D" parent="NPC/BigCat" unique_id=1537377675]
+z_index = -2
+texture = ExtResource("4_lhbpg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/BigCat" unique_id=2032730313]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2134178653]
+z_index = -6
+offset_right = 1128.0
+offset_bottom = 240.0
+texture = ExtResource("1_b4hs7")
+
 [node name="PlayerWalk" parent="." unique_id=909692556 instance=ExtResource("1_f3w6n")]
-position = Vector2(96, 120)
+position = Vector2(224, 184)
 
 [node name="floor" type="StaticBody2D" parent="." unique_id=132829883]
 position = Vector2(96, 208)
 
 [node name="Sprite2D" type="Sprite2D" parent="floor" unique_id=777685987]
+visible = false
 position = Vector2(148, 0)
 scale = Vector2(3.3125, 1)
 texture = ExtResource("2_f3w6n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="floor" unique_id=2087849469]
-position = Vector2(148, 0)
+position = Vector2(468, 16)
 shape = SubResource("RectangleShape2D_b4hs7")

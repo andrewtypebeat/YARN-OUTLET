@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Yarn Outlet"
-run/main_scene="uid://cyfnctd8gy867"
+run/main_scene="uid://bxc8ww1ds0adr"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 

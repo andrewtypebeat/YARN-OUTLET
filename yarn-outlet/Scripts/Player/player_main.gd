@@ -32,7 +32,7 @@ const JUMP_VELOCITY = -400.0
 
 
 func _ready() -> void:
-	pass
+	screen_size = get_viewport_rect().size
 
 func _process(delta):
 	var velocity = Vector2.ZERO 

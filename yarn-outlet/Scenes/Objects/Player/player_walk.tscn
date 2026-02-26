@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://btftft0aiw2q4" path="res://spr_test_sprite.png" id="2_2meqa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f6oq4"]
-size = Vector2(24, 50)
+size = Vector2(14, 36)
 
 [node name="PlayerWalk" type="CharacterBody2D" unique_id=909692556]
 script = ExtResource("1_ww4dw")
@@ -13,9 +13,12 @@ script = ExtResource("1_ww4dw")
 texture = ExtResource("2_2meqa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=694810717]
+position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_f6oq4")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=329176374]
 process_callback = 0
+limit_top = -1
+limit_bottom = 240
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0

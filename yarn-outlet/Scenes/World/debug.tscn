@@ -2,7 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://cv1fcpq8p643h" path="res://Scenes/Objects/Player/player_ship.tscn" id="1_3rcww"]
 [ext_resource type="PackedScene" uid="uid://db7xplfgvssf8" path="res://Scenes/Objects/game_object.tscn" id="1_rxail"]
-[ext_resource type="PackedScene" uid="uid://dcxoxi3hmeuua" path="res://Scenes/Objects/camera_handler.tscn" id="3_rxail"]
 
 [node name="Node2D" type="Node2D" unique_id=1782077261]
 
@@ -12,8 +11,5 @@
 position = Vector2(153, 230)
 
 [node name="enemyTimer" type="Timer" parent="." unique_id=1562367658]
-
-[node name="CameraHandler" parent="." unique_id=1642911306 instance=ExtResource("3_rxail")]
-position = Vector2(319, 240)
 
 [connection signal="timeout" from="enemyTimer" to="." method="_on_enemy_timer_timeout"]
