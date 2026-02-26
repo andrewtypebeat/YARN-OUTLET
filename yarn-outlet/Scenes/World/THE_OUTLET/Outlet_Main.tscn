@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bxc8ww1ds0adr"]
+
+[ext_resource type="PackedScene" uid="uid://b2frgu0nv8rsn" path="res://Scenes/Objects/Player/player_walk.tscn" id="1_f3w6n"]
+[ext_resource type="Texture2D" uid="uid://8sn80g7ubh4w" path="res://icon.svg" id="2_f3w6n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b4hs7"]
+size = Vector2(424, 128)
+
+[node name="OutletMain" type="Node2D" unique_id=768598864]
+
+[node name="PlayerWalk" parent="." unique_id=909692556 instance=ExtResource("1_f3w6n")]
+position = Vector2(96, 120)
+
+[node name="floor" type="StaticBody2D" parent="." unique_id=132829883]
+position = Vector2(96, 208)
+
+[node name="Sprite2D" type="Sprite2D" parent="floor" unique_id=777685987]
+position = Vector2(148, 0)
+scale = Vector2(3.3125, 1)
+texture = ExtResource("2_f3w6n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floor" unique_id=2087849469]
+position = Vector2(148, 0)
+shape = SubResource("RectangleShape2D_b4hs7")

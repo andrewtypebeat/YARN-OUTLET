@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dcxoxi3hmeuua"]
+
+[ext_resource type="Script" uid="uid://bdolb1o3fyie1" path="res://Scripts/camera_handler.gd" id="1_bnxjd"]
+
+[node name="CameraHandler" type="Node2D" unique_id=1642911306]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=656254841]
+script = ExtResource("1_bnxjd")

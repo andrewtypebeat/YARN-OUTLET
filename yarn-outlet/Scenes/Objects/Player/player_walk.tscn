@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://b2frgu0nv8rsn"]
+
+[ext_resource type="Script" uid="uid://c57y0wpaesiv3" path="res://Scripts/Player/player_walk.gd" id="1_ww4dw"]
+[ext_resource type="Texture2D" uid="uid://btftft0aiw2q4" path="res://spr_test_sprite.png" id="2_2meqa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f6oq4"]
+size = Vector2(24, 50)
+
+[node name="PlayerWalk" type="CharacterBody2D" unique_id=909692556]
+script = ExtResource("1_ww4dw")
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=791079270]
+texture = ExtResource("2_2meqa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=694810717]
+shape = SubResource("RectangleShape2D_f6oq4")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=329176374]
+process_callback = 0
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
