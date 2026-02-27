@@ -8,6 +8,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b4hs7"]
 size = Vector2(1128, 32)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lhbpg"]
+size = Vector2(16, 240)
+
 [node name="OutletMain" type="Node2D" unique_id=768598864]
 
 [node name="NPC" type="Node" parent="." unique_id=661558963]
@@ -42,3 +45,11 @@ texture = ExtResource("2_f3w6n")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="floor" unique_id=2087849469]
 position = Vector2(468, 16)
 shape = SubResource("RectangleShape2D_b4hs7")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="floor" unique_id=433504930]
+position = Vector2(-104, -88)
+shape = SubResource("RectangleShape2D_lhbpg")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="floor" unique_id=1642264631]
+position = Vector2(1040, -88)
+shape = SubResource("RectangleShape2D_lhbpg")

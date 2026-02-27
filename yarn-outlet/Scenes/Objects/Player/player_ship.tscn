@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cv1fcpq8p643h"]
 
 [ext_resource type="Script" uid="uid://duy3l65em3mat" path="res://Scripts/Player/player_main.gd" id="1_04am3"]
-[ext_resource type="Texture2D" uid="uid://btftft0aiw2q4" path="res://spr_test_sprite.png" id="2_04am3"]
+[ext_resource type="Texture2D" uid="uid://dh2t0267mp7xq" path="res://Assets/Sprites/Ship/ship_test.png" id="2_5xinc"]
 [ext_resource type="AudioStream" uid="uid://dbhj6jhjs80ss" path="res://Assets/Sounds/snd_shoot_test.wav" id="3_pvd6j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_04am3"]
@@ -11,9 +11,11 @@ size = Vector2(8, 8)
 script = ExtResource("1_04am3")
 
 [node name="Icon" type="Sprite2D" parent="." unique_id=1576504561]
-texture = ExtResource("2_04am3")
+position = Vector2(2, -5)
+texture = ExtResource("2_5xinc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1157184564]
+position = Vector2(-5, -3)
 shape = SubResource("RectangleShape2D_04am3")
 
 [node name="bulSound" type="AudioStreamPlayer2D" parent="." unique_id=1118048288]

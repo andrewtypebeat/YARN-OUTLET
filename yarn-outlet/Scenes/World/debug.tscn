@@ -5,10 +5,15 @@
 
 [node name="Node2D" type="Node2D" unique_id=1782077261]
 
+[node name="IMP_BG" type="ColorRect" parent="." unique_id=1124363960]
+offset_right = 320.0
+offset_bottom = 240.0
+color = Color(0.044198122, 0.13087584, 0.24414572, 1)
+
 [node name="GameObject" parent="." unique_id=1788045390 instance=ExtResource("1_rxail")]
 
 [node name="PlayerMain" parent="." unique_id=17731177 instance=ExtResource("1_3rcww")]
-position = Vector2(153, 230)
+position = Vector2(45, 131)
 
 [node name="enemyTimer" type="Timer" parent="." unique_id=1562367658]
 

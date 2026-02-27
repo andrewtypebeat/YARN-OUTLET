@@ -26,6 +26,7 @@ enum playerState {
 var screen_size
 var pState = playerState.IDLE
 var canShoot = true
+var dash = 1
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
@@ -40,7 +41,7 @@ func _process(delta):
 	var input_ver = Input.get_axis("ui_up", "ui_down")
 	var inp_shoot = Input.is_action_pressed("ui_shoot")
 	
-	var dash = 1
+
 
 	velocity.x += input_hor
 	velocity.y += input_ver

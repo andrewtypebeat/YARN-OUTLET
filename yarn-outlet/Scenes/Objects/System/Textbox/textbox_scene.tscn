@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dboo3ewsgbnjf"]
+
+[ext_resource type="Script" uid="uid://cg7d3vdr1o4gs" path="res://Scripts/System/Textbox/textbox_scene.gd" id="1_ogqgw"]
+
+[node name="TextboxScene" type="Node2D" unique_id=1866239835]
+script = ExtResource("1_ogqgw")
+
+[node name="text_display" type="RichTextLabel" parent="." unique_id=30429337]
+offset_right = 40.0
+offset_bottom = 40.0
