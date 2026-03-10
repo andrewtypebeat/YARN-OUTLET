@@ -1,0 +1,39 @@
+[gd_resource type="Theme" format=3 uid="uid://bbm1mskahih14"]
+
+[ext_resource type="StyleBox" uid="uid://ccvo4xq4wdnn4" path="res://Assets/Dialog/button_disabled.tres" id="1_b7ige"]
+[ext_resource type="StyleBox" uid="uid://ye4kdvv4ojgo" path="res://Assets/Dialog/button_focus.tres" id="2_3mky1"]
+[ext_resource type="StyleBox" uid="uid://crkupi6g5mt1p" path="res://Assets/Dialog/button_normal.tres" id="3_8erfv"]
+[ext_resource type="StyleBox" uid="uid://cnpbum8tm2o5j" path="res://Assets/Dialog/button_pressed.tres" id="4_h0yk4"]
+[ext_resource type="StyleBox" uid="uid://bqv6b52as3j3g" path="res://Assets/Dialog/new_style_box_flat.tres" id="5_nci28"]
+[ext_resource type="FontFile" uid="uid://drdis4hmrm1tu" path="res://Assets/Font/visitor2.ttf" id="6_3mky1"]
+
+[resource]
+default_font = ExtResource("6_3mky1")
+default_font_size = 13
+Button/colors/font_color = Color(0.89178085, 0.88600785, 0.7306176, 1)
+Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
+Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_disabled_color = Color(1, 1, 1, 0.4)
+Button/colors/icon_focus_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_normal_color = Color(1, 1, 1, 1)
+Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
+Button/constants/align_to_largest_stylebox = 0
+Button/constants/h_separation = 4
+Button/constants/icon_max_width = 0
+Button/constants/outline_size = 0
+Button/styles/disabled = ExtResource("1_b7ige")
+Button/styles/focus = ExtResource("2_3mky1")
+Button/styles/hover = ExtResource("3_8erfv")
+Button/styles/normal = ExtResource("3_8erfv")
+Button/styles/pressed = ExtResource("4_h0yk4")
+MarginContainer/constants/margin_bottom = 5
+MarginContainer/constants/margin_left = 5
+MarginContainer/constants/margin_right = 5
+MarginContainer/constants/margin_top = 5
+PanelContainer/styles/panel = ExtResource("5_nci28")

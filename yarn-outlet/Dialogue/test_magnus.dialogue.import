@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://c4ons7gh6j1xv"
+path="res://.godot/imported/test_magnus.dialogue-3bc3eebbf6b9dbe7dc8e7fce6e1eb974.tres"
+
+[deps]
+
+source_file="res://Dialogue/test_magnus.dialogue"
+dest_files=["res://.godot/imported/test_magnus.dialogue-3bc3eebbf6b9dbe7dc8e7fce6e1eb974.tres"]
+
+[params]
+
+defaults=true

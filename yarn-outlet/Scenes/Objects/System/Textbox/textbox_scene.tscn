@@ -6,5 +6,5 @@
 script = ExtResource("1_ogqgw")
 
 [node name="text_display" type="RichTextLabel" parent="." unique_id=30429337]
-offset_right = 40.0
+offset_right = 168.0
 offset_bottom = 40.0

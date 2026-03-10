@@ -6,6 +6,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f6oq4"]
 size = Vector2(14, 36)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_2meqa"]
+radius = 7.0
+
 [node name="PlayerWalk" type="CharacterBody2D" unique_id=909692556]
 script = ExtResource("1_ww4dw")
 
@@ -24,3 +27,13 @@ limit_right = 1120
 limit_bottom = 240
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=920561848]
+
+[node name="ActionableFinder" type="Area2D" parent="Marker2D" unique_id=126881286]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Marker2D/ActionableFinder" unique_id=979731615]
+position = Vector2(0, 11)
+shape = SubResource("CircleShape2D_2meqa")
