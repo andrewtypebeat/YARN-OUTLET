@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bqgvruod5gavb"]
+
+[ext_resource type="Script" uid="uid://bqiu1e4mfvioe" path="res://Scripts/System/enemy_check.gd" id="1_pajx4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3c74y"]
+size = Vector2(25.25, 481)
+
+[node name="check_test" type="StaticBody2D" unique_id=1674992976]
+collision_layer = 32
+script = ExtResource("1_pajx4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1305136072]
+position = Vector2(173.625, 240)
+shape = SubResource("RectangleShape2D_3c74y")

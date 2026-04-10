@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://xssl3hnrkv0j"]
+
+[ext_resource type="PackedScene" uid="uid://cv1fcpq8p643h" path="res://Scenes/Objects/Player/player_ship.tscn" id="1_3c74y"]
+[ext_resource type="PackedScene" uid="uid://db7xplfgvssf8" path="res://Scenes/Objects/game_object.tscn" id="2_hy1br"]
+[ext_resource type="PackedScene" uid="uid://bqgvruod5gavb" path="res://Scenes/Objects/System/enemy_check.tscn" id="3_hy1br"]
+
+[node name="Level1" type="Node2D" unique_id=497119044]
+
+[node name="PlayerMain" parent="." unique_id=1457002774 instance=ExtResource("1_3c74y")]
+position = Vector2(45, 131)
+
+[node name="GameObject" parent="." unique_id=1788045390 instance=ExtResource("2_hy1br")]
+
+[node name="enemyTimer" type="Timer" parent="." unique_id=1758220688]
+wait_time = 0.2
+
+[node name="Level_1" type="StaticBody2D" parent="." unique_id=1277496841]
+
+[node name="check_test" parent="." unique_id=1674992976 instance=ExtResource("3_hy1br")]

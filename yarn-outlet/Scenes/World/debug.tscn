@@ -8,7 +8,7 @@
 [node name="IMP_BG" type="ColorRect" parent="." unique_id=1124363960]
 offset_right = 320.0
 offset_bottom = 240.0
-color = Color(0.044198122, 0.13087584, 0.24414572, 1)
+color = Color(0.13725491, 0.13333334, 0.13725491, 1)
 
 [node name="GameObject" parent="." unique_id=1788045390 instance=ExtResource("1_rxail")]
 
