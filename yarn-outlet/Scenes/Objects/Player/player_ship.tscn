@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://duy3l65em3mat" path="res://Scripts/Player/player_main.gd" id="1_04am3"]
 [ext_resource type="Texture2D" uid="uid://xn52lhcxyaih" path="res://Assets/Sprites/Ship/main_ship_idle.png" id="2_5xinc"]
-[ext_resource type="AudioStream" uid="uid://dbhj6jhjs80ss" path="res://Assets/Sounds/snd_shoot_test.wav" id="3_pvd6j"]
+[ext_resource type="AudioStream" uid="uid://bhobqdagah442" path="res://Assets/Sounds/snd_shoot.wav" id="3_5xinc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_04am3"]
 size = Vector2(8, 8)
@@ -11,6 +11,7 @@ size = Vector2(8, 8)
 script = ExtResource("1_04am3")
 
 [node name="Icon" type="Sprite2D" parent="." unique_id=1576504561]
+z_index = 1
 position = Vector2(2, -5)
 texture = ExtResource("2_5xinc")
 
@@ -19,10 +20,15 @@ position = Vector2(-5, -3)
 shape = SubResource("RectangleShape2D_04am3")
 
 [node name="bulSound" type="AudioStreamPlayer2D" parent="." unique_id=1118048288]
-stream = ExtResource("3_pvd6j")
-volume_db = -3.25
+stream = ExtResource("3_5xinc")
 
 [node name="Timer" type="Timer" parent="." unique_id=2070250832]
 wait_time = 0.1
 
+[node name="hplabel" type="Label" parent="." unique_id=18315075]
+offset_left = -16.0
+offset_right = 24.0
+offset_bottom = 23.0
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

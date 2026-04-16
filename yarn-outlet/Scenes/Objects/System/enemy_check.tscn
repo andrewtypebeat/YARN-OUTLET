@@ -1,14 +1,19 @@
 [gd_scene format=3 uid="uid://bqgvruod5gavb"]
 
-[ext_resource type="Script" uid="uid://bqiu1e4mfvioe" path="res://Scripts/System/enemy_check.gd" id="1_pajx4"]
+[ext_resource type="Script" uid="uid://cr5p5pyu4cogb" path="res://Scripts/gen_enemy_check.gd" id="1_pajx4"]
+[ext_resource type="PackedScene" uid="uid://c34p458aeogkt" path="res://Scenes/Objects/Enemy/test_enemy.tscn" id="2_7k2h6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3c74y"]
-size = Vector2(25.25, 481)
+size = Vector2(16, 256)
 
-[node name="check_test" type="StaticBody2D" unique_id=1674992976]
+[node name="check_test" type="Area2D" unique_id=2137279839]
 collision_layer = 32
 script = ExtResource("1_pajx4")
+enemy_scene = ExtResource("2_7k2h6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1305136072]
-position = Vector2(173.625, 240)
 shape = SubResource("RectangleShape2D_3c74y")
+
+[node name="Timer" type="Timer" parent="." unique_id=1530455645]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

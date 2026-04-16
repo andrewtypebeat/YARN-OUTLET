@@ -3,9 +3,11 @@
 [ext_resource type="PackedScene" uid="uid://cv1fcpq8p643h" path="res://Scenes/Objects/Player/player_ship.tscn" id="1_3c74y"]
 [ext_resource type="PackedScene" uid="uid://db7xplfgvssf8" path="res://Scenes/Objects/game_object.tscn" id="2_hy1br"]
 [ext_resource type="PackedScene" uid="uid://bqgvruod5gavb" path="res://Scenes/Objects/System/enemy_check.tscn" id="3_hy1br"]
+[ext_resource type="PackedScene" uid="uid://40jfiaudu5hc" path="res://Scenes/Objects/Enemy/enemy_ship.tscn" id="4_8nryo"]
+[ext_resource type="Script" uid="uid://cys14a0evc5ut" path="res://Scripts/level_hazard.gd" id="5_idrfq"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hy1br"]
-size = Vector2(142, 35)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8nryo"]
+size = Vector2(128, 42)
 
 [node name="Level1" type="Node2D" unique_id=497119044]
 
@@ -20,13 +22,31 @@ one_shot = true
 
 [node name="LevelObj" type="Node2D" parent="." unique_id=804101807]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="LevelObj" unique_id=1360660783]
-position = Vector2(333, 464)
+[node name="check_test2" parent="LevelObj" unique_id=1291698391 instance=ExtResource("3_hy1br")]
+position = Vector2(680, 128)
+enemy_scene = ExtResource("4_8nryo")
+level_node = NodePath("../..")
+spawn_delay = 0.2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObj/StaticBody2D" unique_id=21869149]
-position = Vector2(-30, -330)
-shape = SubResource("RectangleShape2D_hy1br")
+[node name="check_test" parent="LevelObj" unique_id=1674992976 instance=ExtResource("3_hy1br")]
+position = Vector2(328, 128)
+enemy_scene = ExtResource("4_8nryo")
+enemy_count = 5
+level_node = NodePath("../..")
+spawn_delay = 0.2
 
-[node name="check_test" parent="." unique_id=1674992976 instance=ExtResource("3_hy1br")]
+[node name="Area2D" type="Area2D" parent="LevelObj" unique_id=1015032312]
+position = Vector2(1000, 216)
+script = ExtResource("5_idrfq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObj/Area2D" unique_id=411195879]
+shape = SubResource("RectangleShape2D_8nryo")
+
+[node name="IMP_BG" type="ColorRect" parent="." unique_id=1494038271]
+z_index = -3
+offset_right = 320.0
+offset_bottom = 240.0
+color = Color(0.13725491, 0.13333334, 0.13725491, 1)
+metadata/_edit_lock_ = true
 
 [connection signal="timeout" from="enemyTimer" to="GameObject" method="_on_enemy_timer_timeout"]

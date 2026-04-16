@@ -17,11 +17,13 @@ enum playerState {
 }
 
 @export var speed = 150
-@export var playerHP = 100
+@export var playerHP = 10
 
 @onready var bulType = preload("res://Scenes/Objects/player_bullet.tscn")
 @onready var bulTimer = $Timer
 @onready var bulSound = $bulSound
+
+@onready var explode_fx = preload("res://Scenes/Objects/Enemy/explosion_sc.tscn")
 
 var screen_size
 var pState = playerState.IDLE
@@ -41,7 +43,7 @@ func _process(delta):
 	var input_ver = Input.get_axis("ui_up", "ui_down")
 	var inp_shoot = Input.is_action_pressed("ui_shoot")
 	
-
+	$hplabel.text = str(playerHP)
 
 	velocity.x += input_hor
 	velocity.y += input_ver
@@ -65,9 +67,26 @@ func _process(delta):
 		curBullet.position.y = position.y
 		curBullet.position.x = position.x + 10
 		get_parent().add_child(curBullet)
-		bulSound.play()
+		play_sound()
 		canShoot = false
 		bulTimer.start()
+		
+	if playerHP <= 0:
+		var explode = explode_fx.instantiate()
+		explode.position = position
+		get_parent().add_child(explode)
+		queue_free()
+	
 
 func _on_timer_timeout():
 	canShoot = true
+	
+func play_sound():
+	bulSound.pitch_scale = randf_range(0.8, 1.2) # slight variation
+	bulSound.play()
+	
+func _on_area_entered(area):
+	if area is EnemyObject:
+		playerHP =  playerHP - 1
+	if area is LevelHazard:
+		playerHP = 0
