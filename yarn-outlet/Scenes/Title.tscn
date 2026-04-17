@@ -1,0 +1,164 @@
+[gd_scene format=3 uid="uid://dq4nou04vfm63"]
+
+[ext_resource type="Texture2D" uid="uid://ogetekx2buxd" path="res://Assets/Sprites/fade.png" id="1_tochr"]
+[ext_resource type="Texture2D" uid="uid://bf2nu28i3isb5" path="res://Assets/Sprites/starry.png" id="2_6khh7"]
+[ext_resource type="Texture2D" uid="uid://cj26xffgc1goy" path="res://Assets/Sprites/title_comet.png" id="3_84h87"]
+[ext_resource type="Texture2D" uid="uid://khpwwii7bknn" path="res://Assets/Sprites/title.png" id="3_bwrlp"]
+[ext_resource type="Script" uid="uid://bv8mipi2i7tq6" path="res://Scripts/game_title.gd" id="5_84h87"]
+
+[sub_resource type="Animation" id="Animation_71b5n"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("comet:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("starry:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("title:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("fade:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_t32dt"]
+resource_name = "title"
+length = 10.233334
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("comet:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.53333336, 1.4666667, 4.5, 5.4000006),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("starry:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.3666667, 2.1666667, 3.9666665, 4.6666665),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("starry:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.3666667, 4.6666665),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-100, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("title:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1, 7.1666665, 7.233333, 7.9333334, 8.466666),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("fade:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(7.1666665, 7.3, 8.333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(18.892157, 18.892157, 18.892157, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w1iyi"]
+_data = {
+&"RESET": SubResource("Animation_71b5n"),
+&"title": SubResource("Animation_t32dt")
+}
+
+[node name="Title" type="Node2D" unique_id=168502937]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=752992376]
+libraries/ = SubResource("AnimationLibrary_w1iyi")
+autoplay = &"title"
+
+[node name="fade" type="TextureRect" parent="." unique_id=1003927811]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_tochr")
+
+[node name="starry" type="TextureRect" parent="." unique_id=1493040665]
+self_modulate = Color(1, 1, 1, 0)
+offset_right = 832.0
+offset_bottom = 240.0
+texture = ExtResource("2_6khh7")
+stretch_mode = 1
+
+[node name="comet" type="TextureRect" parent="." unique_id=1978616368]
+offset_right = 320.0
+offset_bottom = 240.0
+texture = ExtResource("3_84h87")
+stretch_mode = 2
+
+[node name="title" type="TextureRect" parent="." unique_id=1126410382]
+modulate = Color(1, 1, 0.98803645, 1)
+offset_left = 8.0
+offset_top = 104.0
+offset_right = 312.0
+offset_bottom = 151.0
+texture = ExtResource("3_bwrlp")
+stretch_mode = 2
+
+[node name="GameObject" type="Node2D" parent="." unique_id=852324679]
+script = ExtResource("5_84h87")

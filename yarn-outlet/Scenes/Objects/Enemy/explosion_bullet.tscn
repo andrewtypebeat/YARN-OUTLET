@@ -1,0 +1,112 @@
+[gd_scene format=3 uid="uid://ct2n6l630hi2a"]
+
+[ext_resource type="Script" uid="uid://ds5mvp3hw6476" path="res://Scripts/explosion_bullet.gd" id="1_mmmm8"]
+[ext_resource type="Texture2D" uid="uid://b0qihv3au2h12" path="res://Assets/Sprites/Effect/shoot_sheet.png" id="2_p6vw6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uhr5i"]
+atlas = ExtResource("2_p6vw6")
+region = Rect2(0, 0, 29, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7fr44"]
+atlas = ExtResource("2_p6vw6")
+region = Rect2(29, 0, 29, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0gu0w"]
+atlas = ExtResource("2_p6vw6")
+region = Rect2(58, 0, 29, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t61bu"]
+atlas = ExtResource("2_p6vw6")
+region = Rect2(87, 0, 29, 27)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fifn2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uhr5i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7fr44")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0gu0w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t61bu")
+}],
+"loop": true,
+"name": &"main",
+"speed": 15.0
+}]
+
+[sub_resource type="Animation" id="Animation_lo0r2"]
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_e2u20"]
+resource_name = "explosion"
+length = 0.26666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.23333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333333, 0.19999999),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uhmqn"]
+_data = {
+&"RESET": SubResource("Animation_lo0r2"),
+&"main": SubResource("Animation_e2u20")
+}
+
+[node name="Explosionbullet" type="Node2D" unique_id=346101603]
+script = ExtResource("1_mmmm8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1793137079]
+sprite_frames = SubResource("SpriteFrames_fifn2")
+animation = &"main"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=957877410]
+libraries/ = SubResource("AnimationLibrary_uhmqn")
+autoplay = &"main"

@@ -4,9 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://c4wk6cvurnd4s" path="res://spr_test_bullet.png" id="1_xer58"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_skxel"]
-size = Vector2(10, 4)
+size = Vector2(18, 4)
 
 [node name="bullet" type="Area2D" unique_id=675839455]
+z_index = -6
 script = ExtResource("1_skxel")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=111257322]

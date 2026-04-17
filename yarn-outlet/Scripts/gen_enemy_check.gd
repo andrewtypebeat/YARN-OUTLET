@@ -5,6 +5,10 @@ extends Area2D
 @export var one_shot: bool = true
 @export var level_node: NodePath 
 @export var spawn_delay: float = 0.5
+@export var spawn_x: float = 340
+@export var spawn_y: float = 0
+@export var use_player_y: bool
+
 var player_y
 
 var has_triggered := false
@@ -29,9 +33,16 @@ func spawn_enemies():
 	for i in range(enemy_count):
 		print("enemy has spawned")
 		var enemy = enemy_scene.instantiate()
-		enemy.position = Vector2(
-			320, 
-			player_y + randf_range(-30, 30)
-			)
+		if use_player_y == true:
+			enemy.position = Vector2(
+				spawn_x, 
+				player_y + randf_range(-30, 30)
+				)
+		else:
+			enemy.position = Vector2(
+				spawn_x, 
+				spawn_y
+				)
+		
 		level.add_child(enemy)
 		await get_tree().create_timer(spawn_delay).timeout

@@ -1,8 +1,10 @@
 extends Node2D
-@onready var enemyDebug = preload("res://Scenes/Objects/Enemy/test_enemy.tscn")
 @onready var timer_ = $"../enemyTimer"
 @onready var levelObject = $"../LevelObj"
 @onready var PlayerObj = $"../PlayerMain"
+
+
+@export var respawn_delay: float = 2.5
 
 var player_y
 var playerDead = false
@@ -20,8 +22,11 @@ func _process(delta):
 	if PlayerObj:
 		playerDead = false
 		player_y = PlayerObj.position.y
+		
 	else:
 		playerDead = true
+		await get_tree().create_timer(respawn_delay).timeout
+		get_tree().reload_current_scene()
 	
 
 	

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://d2isx7cjfdyul"]
+
+[ext_resource type="Script" uid="uid://cys14a0evc5ut" path="res://Scripts/level_hazard.gd" id="1_y75lf"]
+
+[node name="Area2D" type="Area2D" unique_id=1844849603]
+script = ExtResource("1_y75lf")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=136670703]

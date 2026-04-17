@@ -1,0 +1,357 @@
+[gd_scene format=3 uid="uid://xssl3hnrkv0j"]
+
+[ext_resource type="PackedScene" uid="uid://cv1fcpq8p643h" path="res://Scenes/Objects/Player/player_ship.tscn" id="1_3c74y"]
+[ext_resource type="PackedScene" uid="uid://db7xplfgvssf8" path="res://Scenes/Objects/game_object.tscn" id="2_hy1br"]
+[ext_resource type="PackedScene" uid="uid://bqgvruod5gavb" path="res://Scenes/Objects/System/enemy_check.tscn" id="3_hy1br"]
+[ext_resource type="PackedScene" uid="uid://40jfiaudu5hc" path="res://Scenes/Objects/Enemy/enemy_ship.tscn" id="4_8nryo"]
+[ext_resource type="Script" uid="uid://cys14a0evc5ut" path="res://Scripts/level_hazard.gd" id="5_idrfq"]
+[ext_resource type="PackedScene" uid="uid://d1rnm6iwr2u1p" path="res://Scenes/Objects/Enemy/enemy_bigger.tscn" id="5_muphr"]
+[ext_resource type="Texture2D" uid="uid://bxtjv1ki4uc5d" path="res://Assets/Sprites/Objects/outletfloor.png" id="5_w7hc0"]
+[ext_resource type="Texture2D" uid="uid://bvrj21bygnq25" path="res://Assets/Sprites/Objects/outletflooredge.png" id="6_5c4wo"]
+[ext_resource type="Texture2D" uid="uid://catm83laljq7q" path="res://Assets/Sprites/Objects/metal_plaque.png" id="6_411ft"]
+[ext_resource type="Texture2D" uid="uid://dih24e4f6cjw8" path="res://Assets/Sprites/Objects/cable.png" id="8_1k3vk"]
+[ext_resource type="Texture2D" uid="uid://b1weo6mu0rtu7" path="res://Assets/Sprites/Objects/cable2.png" id="9_hpgyx"]
+[ext_resource type="Texture2D" uid="uid://8sn80g7ubh4w" path="res://icon.svg" id="9_qvrdo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_muphr"]
+size = Vector2(16, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_411ft"]
+size = Vector2(32, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1k3vk"]
+size = Vector2(480, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hpgyx"]
+size = Vector2(24, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_py0vv"]
+size = Vector2(256, 64.00003)
+
+[node name="Level1" type="Node2D" unique_id=497119044]
+
+[node name="PlayerMain" parent="." unique_id=1457002774 instance=ExtResource("1_3c74y")]
+position = Vector2(45, 131)
+
+[node name="GameObject" parent="." unique_id=1788045390 instance=ExtResource("2_hy1br")]
+
+[node name="enemyTimer" type="Timer" parent="." unique_id=1758220688]
+wait_time = 0.5
+one_shot = true
+
+[node name="LevelObj" type="Node2D" parent="." unique_id=804101807]
+
+[node name="objects" type="Node2D" parent="LevelObj" unique_id=1801396959]
+
+[node name="Cable2" type="Area2D" parent="LevelObj/objects" unique_id=532222408]
+position = Vector2(640, 64)
+rotation = -3.1415925
+script = ExtResource("5_idrfq")
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelObj/objects/Cable2" unique_id=1931070868]
+texture_filter = 1
+texture_repeat = 2
+texture = ExtResource("8_1k3vk")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObj/objects/Cable2" unique_id=1581081189]
+shape = SubResource("RectangleShape2D_muphr")
+metadata/_edit_lock_ = true
+
+[node name="Cable3" type="Area2D" parent="LevelObj/objects" unique_id=928435239]
+position = Vector2(540, 197)
+script = ExtResource("5_idrfq")
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelObj/objects/Cable3" unique_id=506337736]
+texture_filter = 1
+texture_repeat = 2
+texture = ExtResource("9_hpgyx")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObj/objects/Cable3" unique_id=313554214]
+shape = SubResource("RectangleShape2D_411ft")
+metadata/_edit_lock_ = true
+
+[node name="Cable4" type="Area2D" parent="LevelObj/objects" unique_id=475743994]
+position = Vector2(458, 43)
+rotation = -3.1415925
+script = ExtResource("5_idrfq")
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelObj/objects/Cable4" unique_id=537934569]
+texture_filter = 1
+texture_repeat = 2
+texture = ExtResource("9_hpgyx")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObj/objects/Cable4" unique_id=51565073]
+shape = SubResource("RectangleShape2D_411ft")
+metadata/_edit_lock_ = true
+
+[node name="Cable5" type="Area2D" parent="LevelObj/objects" unique_id=1968282341]
+position = Vector2(758, 43)
+rotation = -3.1415925
+script = ExtResource("5_idrfq")
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelObj/objects/Cable5" unique_id=1774592876]
+texture_filter = 1
+texture_repeat = 2
+texture = ExtResource("9_hpgyx")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObj/objects/Cable5" unique_id=1369418450]
+shape = SubResource("RectangleShape2D_411ft")
+metadata/_edit_lock_ = true
+
+[node name="Cable6" type="Area2D" parent="LevelObj/objects" unique_id=1111600966]
+position = Vector2(609, 175)
+script = ExtResource("5_idrfq")
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelObj/objects/Cable6" unique_id=1932730927]
+texture_filter = 1
+texture_repeat = 2
+texture = ExtResource("8_1k3vk")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObj/objects/Cable6" unique_id=1129457566]
+shape = SubResource("RectangleShape2D_muphr")
+metadata/_edit_lock_ = true
+
+[node name="Cable7" type="Area2D" parent="LevelObj/objects" unique_id=399412604]
+position = Vector2(638, 198)
+script = ExtResource("5_idrfq")
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelObj/objects/Cable7" unique_id=1808255359]
+texture_filter = 1
+texture_repeat = 2
+texture = ExtResource("9_hpgyx")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObj/objects/Cable7" unique_id=329029861]
+shape = SubResource("RectangleShape2D_411ft")
+metadata/_edit_lock_ = true
+
+[node name="Cable8" type="Area2D" parent="LevelObj/objects" unique_id=1580064218]
+position = Vector2(849, 198)
+script = ExtResource("5_idrfq")
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelObj/objects/Cable8" unique_id=16120615]
+texture_filter = 1
+texture_repeat = 2
+texture = ExtResource("9_hpgyx")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObj/objects/Cable8" unique_id=582102286]
+shape = SubResource("RectangleShape2D_411ft")
+metadata/_edit_lock_ = true
+
+[node name="metal3" type="Area2D" parent="LevelObj/objects" unique_id=2065866540]
+z_index = -3
+position = Vector2(956, 114)
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelObj/objects/metal3" unique_id=528252780]
+texture = ExtResource("6_411ft")
+metadata/_edit_lock_ = true
+
+[node name="metal2" type="Area2D" parent="LevelObj/objects" unique_id=190735257]
+z_index = -4
+position = Vector2(538, 105)
+rotation = -3.1415925
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelObj/objects/metal2" unique_id=958364594]
+texture = ExtResource("6_411ft")
+metadata/_edit_lock_ = true
+
+[node name="metal" type="Area2D" parent="LevelObj/objects" unique_id=573797625]
+z_index = -4
+position = Vector2(384, 141)
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelObj/objects/metal" unique_id=341446110]
+texture = ExtResource("6_411ft")
+metadata/_edit_lock_ = true
+
+[node name="Floor3" type="Area2D" parent="LevelObj/objects" unique_id=746461987]
+position = Vector2(240, 16)
+rotation = -3.1415925
+script = ExtResource("5_idrfq")
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelObj/objects/Floor3" unique_id=1582008108]
+texture_filter = 1
+texture_repeat = 2
+texture = ExtResource("5_w7hc0")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObj/objects/Floor3" unique_id=1129957450]
+shape = SubResource("RectangleShape2D_1k3vk")
+metadata/_edit_lock_ = true
+
+[node name="Floor2" type="Area2D" parent="LevelObj/objects" unique_id=787066943]
+position = Vector2(720, 224)
+script = ExtResource("5_idrfq")
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelObj/objects/Floor2" unique_id=74373630]
+texture_filter = 1
+texture_repeat = 2
+texture = ExtResource("5_w7hc0")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObj/objects/Floor2" unique_id=1898281677]
+shape = SubResource("RectangleShape2D_1k3vk")
+metadata/_edit_lock_ = true
+
+[node name="Floor" type="Area2D" parent="LevelObj/objects" unique_id=1480002313]
+position = Vector2(240, 224)
+script = ExtResource("5_idrfq")
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelObj/objects/Floor" unique_id=1794218249]
+texture_filter = 1
+texture_repeat = 2
+texture = ExtResource("5_w7hc0")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObj/objects/Floor" unique_id=827242957]
+shape = SubResource("RectangleShape2D_1k3vk")
+metadata/_edit_lock_ = true
+
+[node name="Floor4" type="Area2D" parent="LevelObj/objects" unique_id=1370896077]
+position = Vector2(720, 16)
+rotation = -3.1415925
+script = ExtResource("5_idrfq")
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelObj/objects/Floor4" unique_id=1117569304]
+texture_filter = 1
+texture_repeat = 2
+texture = ExtResource("5_w7hc0")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObj/objects/Floor4" unique_id=622970119]
+shape = SubResource("RectangleShape2D_1k3vk")
+metadata/_edit_lock_ = true
+
+[node name="FloorEdge" type="Area2D" parent="LevelObj/objects" unique_id=2102460636]
+position = Vector2(976, 224)
+script = ExtResource("5_idrfq")
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelObj/objects/FloorEdge" unique_id=979817996]
+texture_filter = 1
+texture_repeat = 2
+texture = ExtResource("6_5c4wo")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObj/objects/FloorEdge" unique_id=2053048799]
+position = Vector2(-4, 1.9073486e-06)
+shape = SubResource("RectangleShape2D_hpgyx")
+metadata/_edit_lock_ = true
+
+[node name="FloorEdge2" type="Area2D" parent="LevelObj/objects" unique_id=2059094375]
+position = Vector2(976, 16)
+scale = Vector2(1, -1)
+script = ExtResource("5_idrfq")
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelObj/objects/FloorEdge2" unique_id=1510294681]
+texture_filter = 1
+texture_repeat = 2
+texture = ExtResource("6_5c4wo")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObj/objects/FloorEdge2" unique_id=1302605137]
+position = Vector2(-4, 1.9073486e-06)
+shape = SubResource("RectangleShape2D_hpgyx")
+metadata/_edit_lock_ = true
+
+[node name="Cable" type="Area2D" parent="LevelObj/objects" unique_id=826576216]
+position = Vector2(445, 177)
+script = ExtResource("5_idrfq")
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelObj/objects/Cable" unique_id=430055503]
+texture_filter = 1
+texture_repeat = 2
+texture = ExtResource("8_1k3vk")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObj/objects/Cable" unique_id=622661122]
+shape = SubResource("RectangleShape2D_muphr")
+metadata/_edit_lock_ = true
+
+[node name="Platform" type="Area2D" parent="LevelObj/objects" unique_id=809575844]
+position = Vector2(1248, 112)
+rotation = -3.1415925
+script = ExtResource("5_idrfq")
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelObj/objects/Platform" unique_id=1112223325]
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(0.6659813, -1.8853478)
+scale = Vector2(1.9895933, 0.52945817)
+texture = ExtResource("9_qvrdo")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObj/objects/Platform" unique_id=1553788589]
+position = Vector2(1.1496582, -1.8853235)
+shape = SubResource("RectangleShape2D_py0vv")
+metadata/_edit_lock_ = true
+
+[node name="checks" type="Node2D" parent="LevelObj" unique_id=2088887884]
+
+[node name="check_test3" parent="LevelObj/checks" unique_id=2137279839 instance=ExtResource("3_hy1br")]
+position = Vector2(680, 128)
+enemy_scene = ExtResource("4_8nryo")
+level_node = NodePath("../../..")
+spawn_delay = 0.2
+use_player_y = true
+
+[node name="check_test2" parent="LevelObj/checks" unique_id=1291698391 instance=ExtResource("3_hy1br")]
+position = Vector2(1023, 122)
+enemy_scene = ExtResource("5_muphr")
+enemy_count = 1
+level_node = NodePath("../../..")
+spawn_delay = 0.2
+spawn_y = 60.0
+
+[node name="check_test" parent="LevelObj/checks" unique_id=1674992976 instance=ExtResource("3_hy1br")]
+position = Vector2(328, 128)
+enemy_scene = ExtResource("4_8nryo")
+level_node = NodePath("../../..")
+spawn_delay = 0.2
+use_player_y = true
+
+[node name="check_test4" parent="LevelObj/checks" unique_id=1240659856 instance=ExtResource("3_hy1br")]
+position = Vector2(1042, 122)
+enemy_scene = ExtResource("5_muphr")
+enemy_count = 1
+level_node = NodePath("../../..")
+spawn_delay = 0.2
+spawn_y = 120.0
+
+[node name="check_test5" parent="LevelObj/checks" unique_id=1454707917 instance=ExtResource("3_hy1br")]
+position = Vector2(1062, 122)
+enemy_scene = ExtResource("5_muphr")
+enemy_count = 1
+level_node = NodePath("../../..")
+spawn_delay = 0.2
+spawn_y = 180.0
+
+[node name="check_test6" parent="LevelObj/checks" unique_id=459931681 instance=ExtResource("3_hy1br")]
+position = Vector2(364, 125)
+enemy_scene = ExtResource("4_8nryo")
+enemy_count = 2
+level_node = NodePath("../../..")
+spawn_delay = 0.2
+use_player_y = true
+
+[node name="check_test7" parent="LevelObj/checks" unique_id=456567312 instance=ExtResource("3_hy1br")]
+position = Vector2(790, 128)
+enemy_scene = ExtResource("4_8nryo")
+enemy_count = 4
+level_node = NodePath("../../..")
+spawn_delay = 0.2
+use_player_y = true
+
+[node name="IMP_BG" type="ColorRect" parent="." unique_id=1494038271]
+visible = false
+z_index = -3
+offset_right = 320.0
+offset_bottom = 240.0
+color = Color(0.13725491, 0.13333334, 0.13725491, 1)
+metadata/_edit_lock_ = true
+
+[connection signal="timeout" from="enemyTimer" to="GameObject" method="_on_enemy_timer_timeout"]

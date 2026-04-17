@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bqgvruod5gavb"]
 
 [ext_resource type="Script" uid="uid://cr5p5pyu4cogb" path="res://Scripts/gen_enemy_check.gd" id="1_pajx4"]
-[ext_resource type="PackedScene" uid="uid://c34p458aeogkt" path="res://Scenes/Objects/Enemy/test_enemy.tscn" id="2_7k2h6"]
+[ext_resource type="PackedScene" uid="uid://c34p458aeogkt" path="res://Scenes/Objects/Enemy/enemyBase.tscn" id="2_7k2h6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3c74y"]
 size = Vector2(16, 256)

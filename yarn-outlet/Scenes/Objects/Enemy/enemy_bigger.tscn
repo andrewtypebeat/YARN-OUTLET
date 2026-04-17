@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://d1rnm6iwr2u1p"]
+
+[ext_resource type="Script" uid="uid://br7gbmbqe1v8e" path="res://Scripts/Enemy/enemy_bigger.gd" id="1_wkkva"]
+[ext_resource type="Texture2D" uid="uid://cr6cuiricbxi5" path="res://Assets/Sprites/Enemy/spr_enemy_hammer.png" id="2_wkkva"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m6vwp"]
+size = Vector2(40, 43)
+
+[sub_resource type="Animation" id="Animation_wkkva"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_m6vwp"]
+resource_name = "hit"
+length = 0.13333334
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1.8247963, 1.8247963, 1.8247963, 1), Color(1.8247963, 1.8247963, 1.8247963, 1), Color(1.353256, 1.353256, 1.353256, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y2qgi"]
+_data = {
+&"RESET": SubResource("Animation_wkkva"),
+&"hit": SubResource("Animation_m6vwp")
+}
+
+[node name="enemy_hammer" type="Area2D" unique_id=992043308]
+script = ExtResource("1_wkkva")
+enemySpeed = 3
+enemyHealth = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1427599772]
+position = Vector2(20.999996, -1)
+texture = ExtResource("2_wkkva")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=440488211]
+position = Vector2(21, -4)
+shape = SubResource("RectangleShape2D_m6vwp")
+
+[node name="moveTimer" type="Timer" parent="." unique_id=1364457714]
+wait_time = 0.4
+one_shot = true
+autostart = true
+
+[node name="moveTimerTwo" type="Timer" parent="." unique_id=802437768]
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=924214303]
+libraries/ = SubResource("AnimationLibrary_y2qgi")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="moveTimer" to="." method="_on_move_timer_timeout"]
+[connection signal="timeout" from="moveTimerTwo" to="." method="_on_move_timer_two_timeout"]
