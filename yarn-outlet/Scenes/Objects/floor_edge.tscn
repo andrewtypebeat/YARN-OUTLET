@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://c3qpwo7oxt0be"]
+
+[ext_resource type="Script" uid="uid://cys14a0evc5ut" path="res://Scripts/level_hazard.gd" id="1_wknyt"]
+[ext_resource type="Texture2D" uid="uid://bvrj21bygnq25" path="res://Assets/Sprites/Objects/outletflooredge.png" id="2_sib6v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hpgyx"]
+size = Vector2(24, 32)
+
+[node name="FloorEdge" type="Area2D" unique_id=318061589]
+script = ExtResource("1_wknyt")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1074567045]
+texture_filter = 1
+texture_repeat = 2
+texture = ExtResource("2_sib6v")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=503878951]
+position = Vector2(-4, 1.9073486e-06)
+shape = SubResource("RectangleShape2D_hpgyx")
+metadata/_edit_lock_ = true

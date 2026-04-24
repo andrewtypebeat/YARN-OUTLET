@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://ti5ol6p71l07"]
+
+[ext_resource type="Script" uid="uid://cys14a0evc5ut" path="res://Scripts/level_hazard.gd" id="1_nti47"]
+[ext_resource type="Texture2D" uid="uid://bxtjv1ki4uc5d" path="res://Assets/Sprites/Objects/outletfloor.png" id="2_hiqvw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1k3vk"]
+size = Vector2(480, 32)
+
+[node name="Floor2" type="Area2D" unique_id=1196483196]
+script = ExtResource("1_nti47")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1790220192]
+texture_filter = 1
+texture_repeat = 2
+texture = ExtResource("2_hiqvw")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=455698607]
+shape = SubResource("RectangleShape2D_1k3vk")
+metadata/_edit_lock_ = true

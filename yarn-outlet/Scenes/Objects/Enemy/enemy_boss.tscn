@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://bsuslb6kitu87"]
+
+[ext_resource type="Script" uid="uid://diq7n8o20qkts" path="res://Scripts/Enemy/enemy_boss.gd" id="1_1thjl"]
+[ext_resource type="Texture2D" uid="uid://bpbbp3v3tc0sw" path="res://Assets/Sprites/Enemy/boss.png" id="2_1thjl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_68x2x"]
+size = Vector2(56, 54)
+
+[sub_resource type="Animation" id="Animation_wkkva"]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_m6vwp"]
+resource_name = "hit"
+length = 0.13333334
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1.8247963, 1.8247963, 1.8247963, 1), Color(1.8247963, 1.8247963, 1.8247963, 1), Color(1.353256, 1.353256, 1.353256, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y2qgi"]
+_data = {
+&"RESET": SubResource("Animation_wkkva"),
+&"hit": SubResource("Animation_m6vwp")
+}
+
+[node name="BOSSFIGHT" type="Area2D" unique_id=992043308]
+script = ExtResource("1_1thjl")
+enemyHealth = 100
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1427599772]
+texture = ExtResource("2_1thjl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=440488211]
+shape = SubResource("RectangleShape2D_68x2x")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=924214303]
+libraries/ = SubResource("AnimationLibrary_y2qgi")
+
+[node name="stop" type="Node" parent="." unique_id=1162679357]
+
+[node name="stopTimer" type="Timer" parent="stop" unique_id=502207992]
+wait_time = 0.25
+one_shot = true
+autostart = true
+
+[node name="stopTimer2" type="Timer" parent="stop" unique_id=53970392]
+wait_time = 0.3
+one_shot = true
+
+[node name="stomp" type="Node" parent="." unique_id=1831818280]
+
+[node name="stompTimer1" type="Timer" parent="stomp" unique_id=1311441444]
+one_shot = true
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="stop/stopTimer" to="." method="_on_stop_timer_timeout"]
+[connection signal="timeout" from="stop/stopTimer2" to="." method="_on_stop_timer_2_timeout"]
+[connection signal="timeout" from="stomp/stompTimer1" to="." method="stomp_timeout"]

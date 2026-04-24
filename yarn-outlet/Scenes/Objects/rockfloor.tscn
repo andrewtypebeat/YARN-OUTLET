@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://mxmd1phe88wg"]
+
+[ext_resource type="Script" uid="uid://cys14a0evc5ut" path="res://Scripts/level_hazard.gd" id="1_iewgr"]
+[ext_resource type="Texture2D" uid="uid://gv5ro7ec8g00" path="res://Assets/Sprites/Objects/spr_cavespikes.png" id="2_vdv0e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0altd"]
+size = Vector2(514, 16)
+
+[node name="floor1" type="Area2D" unique_id=1818888003]
+script = ExtResource("1_iewgr")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1699570825]
+offset_right = 512.0
+offset_bottom = 16.0
+texture = ExtResource("2_vdv0e")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1850761694]
+position = Vector2(255, 8)
+shape = SubResource("RectangleShape2D_0altd")

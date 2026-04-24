@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://xssl3hnrkv0j"]
 
 [ext_resource type="PackedScene" uid="uid://cv1fcpq8p643h" path="res://Scenes/Objects/Player/player_ship.tscn" id="1_3c74y"]
+[ext_resource type="AudioStream" uid="uid://b6gqxm6jxog1l" path="res://Assets/musik/ewe.mp3" id="1_6flkn"]
 [ext_resource type="PackedScene" uid="uid://db7xplfgvssf8" path="res://Scenes/Objects/game_object.tscn" id="2_hy1br"]
 [ext_resource type="PackedScene" uid="uid://bqgvruod5gavb" path="res://Scenes/Objects/System/enemy_check.tscn" id="3_hy1br"]
 [ext_resource type="PackedScene" uid="uid://40jfiaudu5hc" path="res://Scenes/Objects/Enemy/enemy_ship.tscn" id="4_8nryo"]
@@ -10,8 +11,17 @@
 [ext_resource type="Texture2D" uid="uid://bvrj21bygnq25" path="res://Assets/Sprites/Objects/outletflooredge.png" id="6_5c4wo"]
 [ext_resource type="Texture2D" uid="uid://catm83laljq7q" path="res://Assets/Sprites/Objects/metal_plaque.png" id="6_411ft"]
 [ext_resource type="Texture2D" uid="uid://dih24e4f6cjw8" path="res://Assets/Sprites/Objects/cable.png" id="8_1k3vk"]
+[ext_resource type="PackedScene" uid="uid://ti5ol6p71l07" path="res://Scenes/Objects/flooroutlet.tscn" id="8_gd0og"]
 [ext_resource type="Texture2D" uid="uid://b1weo6mu0rtu7" path="res://Assets/Sprites/Objects/cable2.png" id="9_hpgyx"]
-[ext_resource type="Texture2D" uid="uid://8sn80g7ubh4w" path="res://icon.svg" id="9_qvrdo"]
+[ext_resource type="PackedScene" uid="uid://c0f5pph1fac1b" path="res://Scenes/Objects/platform.tscn" id="9_js2h6"]
+[ext_resource type="PackedScene" uid="uid://c3qpwo7oxt0be" path="res://Scenes/Objects/floor_edge.tscn" id="9_tknro"]
+[ext_resource type="PackedScene" uid="uid://ckt0ikjv6liqo" path="res://Scenes/Objects/rockthing1.tscn" id="13_0altd"]
+[ext_resource type="PackedScene" uid="uid://dbyei0r5ncxlc" path="res://Scenes/Objects/rockthing2.tscn" id="13_js2h6"]
+[ext_resource type="Texture2D" uid="uid://bo1xfxjxhs8xf" path="res://Assets/Sprites/Background/Space/moka_panorama_void2.png" id="13_py0vv"]
+[ext_resource type="PackedScene" uid="uid://mxmd1phe88wg" path="res://Scenes/Objects/rockfloor.tscn" id="13_xh1if"]
+[ext_resource type="PackedScene" uid="uid://bwgmbuvrrmag0" path="res://Scenes/Objects/rockthing3.tscn" id="13_xupik"]
+[ext_resource type="PackedScene" uid="uid://bsuslb6kitu87" path="res://Scenes/Objects/Enemy/enemy_boss.tscn" id="16_xqm5s"]
+[ext_resource type="Script" uid="uid://boiutj80ltdjw" path="res://Scripts/parallaxfake.gd" id="19_tknro"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_muphr"]
 size = Vector2(16, 64)
@@ -25,10 +35,13 @@ size = Vector2(480, 32)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hpgyx"]
 size = Vector2(24, 32)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_py0vv"]
-size = Vector2(256, 64.00003)
-
 [node name="Level1" type="Node2D" unique_id=497119044]
+
+[node name="MUSICPLAYER" type="AudioStreamPlayer2D" parent="." unique_id=1013523847]
+process_mode = 3
+stream = ExtResource("1_6flkn")
+volume_db = -3.25
+autoplay = true
 
 [node name="PlayerMain" parent="." unique_id=1457002774 instance=ExtResource("1_3c74y")]
 position = Vector2(45, 131)
@@ -55,6 +68,105 @@ texture = ExtResource("8_1k3vk")
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObj/objects/Cable2" unique_id=1581081189]
+shape = SubResource("RectangleShape2D_muphr")
+metadata/_edit_lock_ = true
+
+[node name="Cable10" type="Area2D" parent="LevelObj/objects" unique_id=253406019]
+position = Vector2(2336, 64)
+rotation = -3.1415925
+script = ExtResource("5_idrfq")
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelObj/objects/Cable10" unique_id=1701005348]
+texture_filter = 1
+texture_repeat = 2
+texture = ExtResource("8_1k3vk")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObj/objects/Cable10" unique_id=545620683]
+shape = SubResource("RectangleShape2D_muphr")
+metadata/_edit_lock_ = true
+
+[node name="Cable11" type="Area2D" parent="LevelObj/objects" unique_id=1284044650]
+position = Vector2(2520, 176)
+script = ExtResource("5_idrfq")
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelObj/objects/Cable11" unique_id=183800437]
+texture_filter = 1
+texture_repeat = 2
+texture = ExtResource("8_1k3vk")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObj/objects/Cable11" unique_id=802519961]
+shape = SubResource("RectangleShape2D_muphr")
+metadata/_edit_lock_ = true
+
+[node name="Cable16" type="Area2D" parent="LevelObj/objects" unique_id=1557531547]
+position = Vector2(3088, 200)
+script = ExtResource("5_idrfq")
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelObj/objects/Cable16" unique_id=1358823985]
+texture_filter = 1
+texture_repeat = 2
+texture = ExtResource("8_1k3vk")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObj/objects/Cable16" unique_id=2133939187]
+shape = SubResource("RectangleShape2D_muphr")
+metadata/_edit_lock_ = true
+
+[node name="Cable18" type="Area2D" parent="LevelObj/objects" unique_id=1953287345]
+position = Vector2(3232, 176)
+script = ExtResource("5_idrfq")
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelObj/objects/Cable18" unique_id=453733531]
+texture_filter = 1
+texture_repeat = 2
+texture = ExtResource("8_1k3vk")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObj/objects/Cable18" unique_id=284519726]
+shape = SubResource("RectangleShape2D_muphr")
+metadata/_edit_lock_ = true
+
+[node name="Cable19" type="Area2D" parent="LevelObj/objects" unique_id=581249429]
+position = Vector2(3304, 200)
+script = ExtResource("5_idrfq")
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelObj/objects/Cable19" unique_id=109836820]
+texture_filter = 1
+texture_repeat = 2
+texture = ExtResource("8_1k3vk")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObj/objects/Cable19" unique_id=1996749455]
+shape = SubResource("RectangleShape2D_muphr")
+metadata/_edit_lock_ = true
+
+[node name="Cable20" type="Area2D" parent="LevelObj/objects" unique_id=801383271]
+position = Vector2(3328, 176)
+script = ExtResource("5_idrfq")
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelObj/objects/Cable20" unique_id=642877920]
+texture_filter = 1
+texture_repeat = 2
+texture = ExtResource("8_1k3vk")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObj/objects/Cable20" unique_id=165416426]
+shape = SubResource("RectangleShape2D_muphr")
+metadata/_edit_lock_ = true
+
+[node name="Cable21" type="Area2D" parent="LevelObj/objects" unique_id=429370235]
+position = Vector2(3544, 176)
+script = ExtResource("5_idrfq")
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelObj/objects/Cable21" unique_id=335046609]
+texture_filter = 1
+texture_repeat = 2
+texture = ExtResource("8_1k3vk")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObj/objects/Cable21" unique_id=1884025557]
 shape = SubResource("RectangleShape2D_muphr")
 metadata/_edit_lock_ = true
 
@@ -130,6 +242,93 @@ metadata/_edit_lock_ = true
 shape = SubResource("RectangleShape2D_411ft")
 metadata/_edit_lock_ = true
 
+[node name="Cable9" type="Area2D" parent="LevelObj/objects" unique_id=1484977529]
+position = Vector2(2096, 168)
+script = ExtResource("5_idrfq")
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelObj/objects/Cable9" unique_id=1215712826]
+texture_filter = 1
+texture_repeat = 2
+texture = ExtResource("9_hpgyx")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObj/objects/Cable9" unique_id=1685104586]
+shape = SubResource("RectangleShape2D_411ft")
+metadata/_edit_lock_ = true
+
+[node name="Cable13" type="Area2D" parent="LevelObj/objects" unique_id=872392382]
+position = Vector2(2144, 72)
+rotation = 3.1415927
+script = ExtResource("5_idrfq")
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelObj/objects/Cable13" unique_id=659982581]
+texture_filter = 1
+texture_repeat = 2
+texture = ExtResource("9_hpgyx")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObj/objects/Cable13" unique_id=299112048]
+shape = SubResource("RectangleShape2D_411ft")
+metadata/_edit_lock_ = true
+
+[node name="Cable12" type="Area2D" parent="LevelObj/objects" unique_id=85187862]
+position = Vector2(2488, 200)
+script = ExtResource("5_idrfq")
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelObj/objects/Cable12" unique_id=1471309124]
+texture_filter = 1
+texture_repeat = 2
+texture = ExtResource("9_hpgyx")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObj/objects/Cable12" unique_id=1822237200]
+shape = SubResource("RectangleShape2D_411ft")
+metadata/_edit_lock_ = true
+
+[node name="Cable17" type="Area2D" parent="LevelObj/objects" unique_id=1187388888]
+position = Vector2(2760, 168)
+script = ExtResource("5_idrfq")
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelObj/objects/Cable17" unique_id=348159997]
+texture_filter = 1
+texture_repeat = 2
+texture = ExtResource("9_hpgyx")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObj/objects/Cable17" unique_id=501382820]
+shape = SubResource("RectangleShape2D_411ft")
+metadata/_edit_lock_ = true
+
+[node name="Cable14" type="Area2D" parent="LevelObj/objects" unique_id=185106478]
+position = Vector2(2608, 40)
+rotation = 3.1415927
+script = ExtResource("5_idrfq")
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelObj/objects/Cable14" unique_id=833109049]
+texture_filter = 1
+texture_repeat = 2
+texture = ExtResource("9_hpgyx")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObj/objects/Cable14" unique_id=1409955768]
+shape = SubResource("RectangleShape2D_411ft")
+metadata/_edit_lock_ = true
+
+[node name="Cable15" type="Area2D" parent="LevelObj/objects" unique_id=1427816449]
+position = Vector2(3128, 56)
+rotation = 3.1415927
+script = ExtResource("5_idrfq")
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelObj/objects/Cable15" unique_id=1203978706]
+texture_filter = 1
+texture_repeat = 2
+texture = ExtResource("9_hpgyx")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObj/objects/Cable15" unique_id=2004045725]
+shape = SubResource("RectangleShape2D_411ft")
+metadata/_edit_lock_ = true
+
 [node name="Cable8" type="Area2D" parent="LevelObj/objects" unique_id=1580064218]
 position = Vector2(849, 198)
 script = ExtResource("5_idrfq")
@@ -149,6 +348,55 @@ z_index = -3
 position = Vector2(956, 114)
 
 [node name="Sprite2D" type="Sprite2D" parent="LevelObj/objects/metal3" unique_id=528252780]
+texture = ExtResource("6_411ft")
+metadata/_edit_lock_ = true
+
+[node name="metal4" type="Area2D" parent="LevelObj/objects" unique_id=1025432565]
+z_index = -3
+position = Vector2(2280, 120)
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelObj/objects/metal4" unique_id=1595886385]
+texture = ExtResource("6_411ft")
+metadata/_edit_lock_ = true
+
+[node name="metal6" type="Area2D" parent="LevelObj/objects" unique_id=1935165923]
+z_index = -3
+position = Vector2(2616, 112)
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelObj/objects/metal6" unique_id=524999391]
+texture = ExtResource("6_411ft")
+metadata/_edit_lock_ = true
+
+[node name="metal7" type="Area2D" parent="LevelObj/objects" unique_id=1905081536]
+z_index = -3
+position = Vector2(2864, 64)
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelObj/objects/metal7" unique_id=655235352]
+texture = ExtResource("6_411ft")
+metadata/_edit_lock_ = true
+
+[node name="metal9" type="Area2D" parent="LevelObj/objects" unique_id=1637911585]
+z_index = -3
+position = Vector2(3520, 96)
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelObj/objects/metal9" unique_id=569307236]
+texture = ExtResource("6_411ft")
+metadata/_edit_lock_ = true
+
+[node name="metal8" type="Area2D" parent="LevelObj/objects" unique_id=831397840]
+z_index = -3
+position = Vector2(3024, 136)
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelObj/objects/metal8" unique_id=1294721760]
+texture = ExtResource("6_411ft")
+metadata/_edit_lock_ = true
+
+[node name="metal5" type="Area2D" parent="LevelObj/objects" unique_id=362708010]
+z_index = -3
+position = Vector2(2040, 96)
+rotation = 3.1415927
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelObj/objects/metal5" unique_id=1889223290]
 texture = ExtResource("6_411ft")
 metadata/_edit_lock_ = true
 
@@ -184,19 +432,8 @@ metadata/_edit_lock_ = true
 shape = SubResource("RectangleShape2D_1k3vk")
 metadata/_edit_lock_ = true
 
-[node name="Floor2" type="Area2D" parent="LevelObj/objects" unique_id=787066943]
+[node name="Floor2" parent="LevelObj/objects" unique_id=1196483196 instance=ExtResource("8_gd0og")]
 position = Vector2(720, 224)
-script = ExtResource("5_idrfq")
-
-[node name="Sprite2D" type="Sprite2D" parent="LevelObj/objects/Floor2" unique_id=74373630]
-texture_filter = 1
-texture_repeat = 2
-texture = ExtResource("5_w7hc0")
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObj/objects/Floor2" unique_id=1898281677]
-shape = SubResource("RectangleShape2D_1k3vk")
-metadata/_edit_lock_ = true
 
 [node name="Floor" type="Area2D" parent="LevelObj/objects" unique_id=1480002313]
 position = Vector2(240, 224)
@@ -227,20 +464,8 @@ metadata/_edit_lock_ = true
 shape = SubResource("RectangleShape2D_1k3vk")
 metadata/_edit_lock_ = true
 
-[node name="FloorEdge" type="Area2D" parent="LevelObj/objects" unique_id=2102460636]
+[node name="FloorEdge" parent="LevelObj/objects" unique_id=318061589 instance=ExtResource("9_tknro")]
 position = Vector2(976, 224)
-script = ExtResource("5_idrfq")
-
-[node name="Sprite2D" type="Sprite2D" parent="LevelObj/objects/FloorEdge" unique_id=979817996]
-texture_filter = 1
-texture_repeat = 2
-texture = ExtResource("6_5c4wo")
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObj/objects/FloorEdge" unique_id=2053048799]
-position = Vector2(-4, 1.9073486e-06)
-shape = SubResource("RectangleShape2D_hpgyx")
-metadata/_edit_lock_ = true
 
 [node name="FloorEdge2" type="Area2D" parent="LevelObj/objects" unique_id=2059094375]
 position = Vector2(976, 16)
@@ -272,28 +497,25 @@ metadata/_edit_lock_ = true
 shape = SubResource("RectangleShape2D_muphr")
 metadata/_edit_lock_ = true
 
-[node name="Platform" type="Area2D" parent="LevelObj/objects" unique_id=809575844]
-position = Vector2(1248, 112)
-rotation = -3.1415925
-script = ExtResource("5_idrfq")
+[node name="Platform1" parent="LevelObj/objects" unique_id=1828689401 instance=ExtResource("9_js2h6")]
+position = Vector2(1552, 128)
 
-[node name="Sprite2D" type="Sprite2D" parent="LevelObj/objects/Platform" unique_id=1112223325]
-texture_filter = 1
-texture_repeat = 2
-position = Vector2(0.6659813, -1.8853478)
-scale = Vector2(1.9895933, 0.52945817)
-texture = ExtResource("9_qvrdo")
-metadata/_edit_lock_ = true
+[node name="Platform4" parent="LevelObj/objects" unique_id=495265460 instance=ExtResource("9_js2h6")]
+position = Vector2(2832, 208)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObj/objects/Platform" unique_id=1553788589]
-position = Vector2(1.1496582, -1.8853235)
-shape = SubResource("RectangleShape2D_py0vv")
-metadata/_edit_lock_ = true
+[node name="Platform5" parent="LevelObj/objects" unique_id=199218135 instance=ExtResource("9_js2h6")]
+position = Vector2(3088, 16)
+
+[node name="Platform2" parent="LevelObj/objects" unique_id=88556472 instance=ExtResource("9_js2h6")]
+position = Vector2(2104, 208)
+
+[node name="Platform3" parent="LevelObj/objects" unique_id=622862546 instance=ExtResource("9_js2h6")]
+position = Vector2(2104, 32)
 
 [node name="checks" type="Node2D" parent="LevelObj" unique_id=2088887884]
 
 [node name="check_test3" parent="LevelObj/checks" unique_id=2137279839 instance=ExtResource("3_hy1br")]
-position = Vector2(680, 128)
+position = Vector2(608, 128)
 enemy_scene = ExtResource("4_8nryo")
 level_node = NodePath("../../..")
 spawn_delay = 0.2
@@ -315,7 +537,7 @@ spawn_delay = 0.2
 use_player_y = true
 
 [node name="check_test4" parent="LevelObj/checks" unique_id=1240659856 instance=ExtResource("3_hy1br")]
-position = Vector2(1042, 122)
+position = Vector2(1040, 120)
 enemy_scene = ExtResource("5_muphr")
 enemy_count = 1
 level_node = NodePath("../../..")
@@ -323,7 +545,7 @@ spawn_delay = 0.2
 spawn_y = 120.0
 
 [node name="check_test5" parent="LevelObj/checks" unique_id=1454707917 instance=ExtResource("3_hy1br")]
-position = Vector2(1062, 122)
+position = Vector2(1032, 120)
 enemy_scene = ExtResource("5_muphr")
 enemy_count = 1
 level_node = NodePath("../../..")
@@ -331,7 +553,7 @@ spawn_delay = 0.2
 spawn_y = 180.0
 
 [node name="check_test6" parent="LevelObj/checks" unique_id=459931681 instance=ExtResource("3_hy1br")]
-position = Vector2(364, 125)
+position = Vector2(448, 128)
 enemy_scene = ExtResource("4_8nryo")
 enemy_count = 2
 level_node = NodePath("../../..")
@@ -346,12 +568,339 @@ level_node = NodePath("../../..")
 spawn_delay = 0.2
 use_player_y = true
 
+[node name="check_test8" parent="LevelObj/checks" unique_id=265616712 instance=ExtResource("3_hy1br")]
+position = Vector2(1464, -32)
+enemy_scene = ExtResource("5_muphr")
+enemy_count = 1
+level_node = NodePath("../../..")
+spawn_delay = 0.2
+spawn_y = 56.0
+
+[node name="check_test12" parent="LevelObj/checks" unique_id=748100358 instance=ExtResource("3_hy1br")]
+position = Vector2(2192, 128)
+enemy_scene = ExtResource("4_8nryo")
+enemy_count = 4
+level_node = NodePath("../../..")
+spawn_delay = 0.2
+spawn_y = 56.0
+use_player_y = true
+
+[node name="check_test13" parent="LevelObj/checks" unique_id=592590158 instance=ExtResource("3_hy1br")]
+position = Vector2(2376, 128)
+enemy_scene = ExtResource("4_8nryo")
+enemy_count = 2
+level_node = NodePath("../../..")
+spawn_delay = 0.2
+spawn_y = 56.0
+use_player_y = true
+
+[node name="check_test14" parent="LevelObj/checks" unique_id=2001043730 instance=ExtResource("3_hy1br")]
+position = Vector2(2416, 128)
+enemy_scene = ExtResource("4_8nryo")
+enemy_count = 2
+level_node = NodePath("../../..")
+spawn_delay = 0.2
+spawn_y = 56.0
+use_player_y = true
+
+[node name="check_test15" parent="LevelObj/checks" unique_id=1846046892 instance=ExtResource("3_hy1br")]
+position = Vector2(2456, 128)
+enemy_scene = ExtResource("4_8nryo")
+enemy_count = 2
+level_node = NodePath("../../..")
+spawn_delay = 0.2
+spawn_y = 56.0
+use_player_y = true
+
+[node name="check_test17" parent="LevelObj/checks" unique_id=1186912023 instance=ExtResource("3_hy1br")]
+position = Vector2(3000, 120)
+enemy_scene = ExtResource("4_8nryo")
+enemy_count = 2
+level_node = NodePath("../../..")
+spawn_delay = 0.2
+spawn_y = 56.0
+use_player_y = true
+
+[node name="check_test18" parent="LevelObj/checks" unique_id=2061174907 instance=ExtResource("3_hy1br")]
+position = Vector2(3024, 120)
+enemy_scene = ExtResource("4_8nryo")
+enemy_count = 2
+level_node = NodePath("../../..")
+spawn_delay = 0.2
+spawn_y = 56.0
+use_player_y = true
+
+[node name="check_test19" parent="LevelObj/checks" unique_id=1172519259 instance=ExtResource("3_hy1br")]
+position = Vector2(3048, 120)
+enemy_scene = ExtResource("4_8nryo")
+enemy_count = 2
+level_node = NodePath("../../..")
+spawn_delay = 0.2
+spawn_y = 56.0
+use_player_y = true
+
+[node name="check_test20" parent="LevelObj/checks" unique_id=1977156319 instance=ExtResource("3_hy1br")]
+position = Vector2(3072, 120)
+enemy_scene = ExtResource("4_8nryo")
+enemy_count = 2
+level_node = NodePath("../../..")
+spawn_delay = 0.2
+spawn_y = 56.0
+use_player_y = true
+
+[node name="check_test21" parent="LevelObj/checks" unique_id=1416781255 instance=ExtResource("3_hy1br")]
+position = Vector2(3272, 112)
+enemy_scene = ExtResource("4_8nryo")
+enemy_count = 2
+level_node = NodePath("../../..")
+spawn_delay = 0.2
+spawn_y = 56.0
+use_player_y = true
+
+[node name="check_test22" parent="LevelObj/checks" unique_id=115071855 instance=ExtResource("3_hy1br")]
+position = Vector2(3384, 112)
+enemy_scene = ExtResource("4_8nryo")
+enemy_count = 5
+level_node = NodePath("../../..")
+spawn_delay = 0.2
+spawn_y = 56.0
+use_player_y = true
+
+[node name="check_test23" parent="LevelObj/checks" unique_id=1174482784 instance=ExtResource("3_hy1br")]
+position = Vector2(3752, 120)
+enemy_scene = ExtResource("16_xqm5s")
+enemy_count = 1
+level_node = NodePath("../../..")
+spawn_delay = 0.2
+spawn_y = 56.0
+use_player_y = true
+
+[node name="check_test16" parent="LevelObj/checks" unique_id=1670077674 instance=ExtResource("3_hy1br")]
+position = Vector2(2808, 120)
+enemy_scene = ExtResource("5_muphr")
+enemy_count = 2
+level_node = NodePath("../../..")
+spawn_y = 56.0
+use_player_y = true
+
+[node name="check_test9" parent="LevelObj/checks" unique_id=1741332453 instance=ExtResource("3_hy1br")]
+position = Vector2(1464, 288)
+enemy_scene = ExtResource("5_muphr")
+enemy_count = 1
+level_node = NodePath("../../..")
+spawn_delay = 0.2
+spawn_y = 208.0
+
+[node name="check_test10" parent="LevelObj/checks" unique_id=856945459 instance=ExtResource("3_hy1br")]
+position = Vector2(1856, 128)
+enemy_scene = ExtResource("4_8nryo")
+level_node = NodePath("../../..")
+spawn_delay = 0.1
+spawn_y = 96.0
+
+[node name="check_test11" parent="LevelObj/checks" unique_id=882492612 instance=ExtResource("3_hy1br")]
+position = Vector2(1832, 128)
+enemy_scene = ExtResource("4_8nryo")
+level_node = NodePath("../../..")
+spawn_delay = 0.1
+spawn_y = 176.0
+
+[node name="floor" type="Node2D" parent="LevelObj" unique_id=856615299]
+
+[node name="rock4" parent="LevelObj/floor" unique_id=396704097 instance=ExtResource("13_xupik")]
+position = Vector2(1824, 216)
+
+[node name="rock14" parent="LevelObj/floor" unique_id=1032819272 instance=ExtResource("13_xupik")]
+position = Vector2(2968, 216)
+
+[node name="rock6" parent="LevelObj/floor" unique_id=506599141 instance=ExtResource("13_0altd")]
+position = Vector2(1936, 216)
+
+[node name="rock15" parent="LevelObj/floor" unique_id=128494003 instance=ExtResource("13_0altd")]
+position = Vector2(2304, 192)
+
+[node name="rock11" parent="LevelObj/floor" unique_id=962239395 instance=ExtResource("13_0altd")]
+position = Vector2(2720, 216)
+
+[node name="rock3" parent="LevelObj/floor" unique_id=2119425684 instance=ExtResource("13_0altd")]
+position = Vector2(1776, 216)
+
+[node name="rock2" parent="LevelObj/floor" unique_id=450280940 instance=ExtResource("13_js2h6")]
+position = Vector2(1280, 24)
+rotation = 3.1415927
+
+[node name="rock7" parent="LevelObj/floor" unique_id=1169699181 instance=ExtResource("13_js2h6")]
+position = Vector2(1928, 32)
+rotation = -3.1415925
+
+[node name="rock17" parent="LevelObj/floor" unique_id=1504969738 instance=ExtResource("13_js2h6")]
+position = Vector2(3224, 24)
+rotation = -3.1415925
+
+[node name="rock20" parent="LevelObj/floor" unique_id=2026093392 instance=ExtResource("13_js2h6")]
+position = Vector2(3544, 24)
+rotation = -3.1415925
+
+[node name="rock18" parent="LevelObj/floor" unique_id=1013002905 instance=ExtResource("13_js2h6")]
+position = Vector2(3160, 208)
+
+[node name="rock13" parent="LevelObj/floor" unique_id=1863380725 instance=ExtResource("13_js2h6")]
+position = Vector2(2960, 24)
+rotation = -3.1415925
+
+[node name="rock5" parent="LevelObj/floor" unique_id=1621054450 instance=ExtResource("13_xupik")]
+position = Vector2(1840, 24)
+rotation = -3.1415925
+
+[node name="rock12" parent="LevelObj/floor" unique_id=997761461 instance=ExtResource("13_xupik")]
+position = Vector2(2840, 24)
+rotation = -3.1415925
+
+[node name="rock19" parent="LevelObj/floor" unique_id=116509065 instance=ExtResource("13_xupik")]
+position = Vector2(3584, 32)
+rotation = -3.1415925
+
+[node name="rock8" parent="LevelObj/floor" unique_id=1764869402 instance=ExtResource("13_0altd")]
+position = Vector2(1624, 8)
+rotation = 3.1415927
+
+[node name="rock9" parent="LevelObj/floor" unique_id=765938949 instance=ExtResource("13_0altd")]
+position = Vector2(1496, 232)
+
+[node name="rock10" parent="LevelObj/floor" unique_id=751959801 instance=ExtResource("13_0altd")]
+position = Vector2(1960, 24)
+rotation = 3.1415927
+
+[node name="rock16" parent="LevelObj/floor" unique_id=1437485639 instance=ExtResource("13_0altd")]
+position = Vector2(2504, 48)
+rotation = 3.1415927
+
+[node name="rock" parent="LevelObj/floor" unique_id=1010610695 instance=ExtResource("13_0altd")]
+position = Vector2(1088, 216)
+
+[node name="floor1" parent="LevelObj/floor" unique_id=1818888003 instance=ExtResource("13_xh1if")]
+position = Vector2(984, 224)
+
+[node name="floor2" parent="LevelObj/floor" unique_id=724571762 instance=ExtResource("13_xh1if")]
+position = Vector2(1496, 16)
+rotation = 3.1415927
+
+[node name="floor3" parent="LevelObj/floor" unique_id=860458747 instance=ExtResource("13_xh1if")]
+position = Vector2(1496, 224)
+
+[node name="floor5" parent="LevelObj/floor" unique_id=651794703 instance=ExtResource("13_xh1if")]
+position = Vector2(2704, 224)
+
+[node name="floor8" parent="LevelObj/floor" unique_id=1409702574 instance=ExtResource("13_xh1if")]
+position = Vector2(3720, 224)
+
+[node name="floor10" parent="LevelObj/floor" unique_id=508683359 instance=ExtResource("13_xh1if")]
+position = Vector2(4232, 224)
+
+[node name="floor11" parent="LevelObj/floor" unique_id=581234413 instance=ExtResource("13_xh1if")]
+position = Vector2(4744, 224)
+
+[node name="floor12" parent="LevelObj/floor" unique_id=1603933111 instance=ExtResource("13_xh1if")]
+position = Vector2(5256, 224)
+
+[node name="floor13" parent="LevelObj/floor" unique_id=1550600165 instance=ExtResource("13_xh1if")]
+position = Vector2(5768, 224)
+
+[node name="floor14" parent="LevelObj/floor" unique_id=1326474040 instance=ExtResource("13_xh1if")]
+position = Vector2(6280, 224)
+
+[node name="floor15" parent="LevelObj/floor" unique_id=259564361 instance=ExtResource("13_xh1if")]
+position = Vector2(6792, 224)
+
+[node name="floor16" parent="LevelObj/floor" unique_id=1896621977 instance=ExtResource("13_xh1if")]
+position = Vector2(7304, 224)
+
+[node name="Floor2" parent="LevelObj/floor" unique_id=183036088 instance=ExtResource("8_gd0og")]
+position = Vector2(2440, 224)
+
+[node name="Floor4" parent="LevelObj/floor" unique_id=1855895652 instance=ExtResource("8_gd0og")]
+position = Vector2(3456, 224)
+
+[node name="floor4" parent="LevelObj/floor" unique_id=1752636333 instance=ExtResource("13_xh1if")]
+position = Vector2(2008, 16)
+rotation = 3.1415927
+
+[node name="floor6" parent="LevelObj/floor" unique_id=296039163 instance=ExtResource("13_xh1if")]
+position = Vector2(3216, 16)
+rotation = 3.1415927
+
+[node name="floor7" parent="LevelObj/floor" unique_id=200725001 instance=ExtResource("13_xh1if")]
+position = Vector2(3728, 16)
+rotation = 3.1415927
+
+[node name="floor9" parent="LevelObj/floor" unique_id=1750877529 instance=ExtResource("13_xh1if")]
+position = Vector2(4240, 16)
+rotation = 3.1415927
+
+[node name="floor17" parent="LevelObj/floor" unique_id=1899053340 instance=ExtResource("13_xh1if")]
+position = Vector2(4752, 16)
+rotation = 3.1415927
+
+[node name="floor18" parent="LevelObj/floor" unique_id=991268845 instance=ExtResource("13_xh1if")]
+position = Vector2(5264, 16)
+rotation = 3.1415927
+
+[node name="floor19" parent="LevelObj/floor" unique_id=1146412895 instance=ExtResource("13_xh1if")]
+position = Vector2(5776, 16)
+rotation = 3.1415927
+
+[node name="floor20" parent="LevelObj/floor" unique_id=126533149 instance=ExtResource("13_xh1if")]
+position = Vector2(6288, 16)
+rotation = 3.1415927
+
+[node name="floor21" parent="LevelObj/floor" unique_id=158064656 instance=ExtResource("13_xh1if")]
+position = Vector2(6800, 16)
+rotation = 3.1415927
+
+[node name="floor22" parent="LevelObj/floor" unique_id=544871493 instance=ExtResource("13_xh1if")]
+position = Vector2(7312, 16)
+rotation = 3.1415927
+
+[node name="floor23" parent="LevelObj/floor" unique_id=793709447 instance=ExtResource("13_xh1if")]
+position = Vector2(7824, 16)
+rotation = 3.1415927
+
+[node name="FloorEdge" parent="LevelObj/floor" unique_id=537255145 instance=ExtResource("9_tknro")]
+position = Vector2(2696, 224)
+
+[node name="FloorEdge4" parent="LevelObj/floor" unique_id=968489828 instance=ExtResource("9_tknro")]
+position = Vector2(3712, 224)
+
+[node name="FloorEdge3" parent="LevelObj/floor" unique_id=727178049 instance=ExtResource("9_tknro")]
+position = Vector2(3200, 224)
+scale = Vector2(-1, 1)
+
+[node name="Floor3" parent="LevelObj/floor" unique_id=2134646230 instance=ExtResource("8_gd0og")]
+position = Vector2(2440, 16)
+rotation = 3.1415927
+
+[node name="FloorEdge2" parent="LevelObj/floor" unique_id=533393314 instance=ExtResource("9_tknro")]
+position = Vector2(2696, 16)
+scale = Vector2(1, -1)
+
 [node name="IMP_BG" type="ColorRect" parent="." unique_id=1494038271]
-visible = false
-z_index = -3
+z_index = -14
 offset_right = 320.0
 offset_bottom = 240.0
 color = Color(0.13725491, 0.13333334, 0.13725491, 1)
+metadata/_edit_lock_ = true
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1447324985]
+script = ExtResource("19_tknro")
+metadata/_edit_lock_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Node2D" unique_id=1833619144]
+self_modulate = Color(1, 1, 1, 0.47058824)
+z_index = -12
+offset_right = 7048.0
+offset_bottom = 240.0
+texture = ExtResource("13_py0vv")
+stretch_mode = 1
 metadata/_edit_lock_ = true
 
 [connection signal="timeout" from="enemyTimer" to="GameObject" method="_on_enemy_timer_timeout"]

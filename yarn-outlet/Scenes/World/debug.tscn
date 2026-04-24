@@ -2,13 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://cv1fcpq8p643h" path="res://Scenes/Objects/Player/player_ship.tscn" id="1_3rcww"]
 [ext_resource type="PackedScene" uid="uid://db7xplfgvssf8" path="res://Scenes/Objects/game_object.tscn" id="1_rxail"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3cmgp"]
-size = Vector2(142, 35)
+[ext_resource type="PackedScene" uid="uid://bqgvruod5gavb" path="res://Scenes/Objects/System/enemy_check.tscn" id="3_x0t4x"]
+[ext_resource type="PackedScene" uid="uid://bsuslb6kitu87" path="res://Scenes/Objects/Enemy/enemy_boss.tscn" id="4_mgk8v"]
 
 [node name="Node2D" type="Node2D" unique_id=1782077261]
 
 [node name="IMP_BG" type="ColorRect" parent="." unique_id=1124363960]
+visible = false
 offset_right = 320.0
 offset_bottom = 240.0
 color = Color(0.13725491, 0.13333334, 0.13725491, 1)
@@ -22,11 +22,11 @@ position = Vector2(45, 131)
 
 [node name="LevelObj" type="Node2D" parent="." unique_id=1135397768]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="LevelObj" unique_id=530680925]
-position = Vector2(333, 464)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObj/StaticBody2D" unique_id=1260236605]
-position = Vector2(-30, -330)
-shape = SubResource("RectangleShape2D_3cmgp")
+[node name="check_test" parent="LevelObj" unique_id=2137279839 instance=ExtResource("3_x0t4x")]
+position = Vector2(128, 118)
+enemy_scene = ExtResource("4_mgk8v")
+enemy_count = 1
+level_node = NodePath("../..")
+use_player_y = true
 
 [connection signal="timeout" from="enemyTimer" to="." method="_on_enemy_timer_timeout"]

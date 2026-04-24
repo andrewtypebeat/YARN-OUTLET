@@ -1,0 +1,7 @@
+~ start
+Strange Owl Lady: Follow me into the alley.
+- Yes
+	Strange Owl Lady: ...Nevermind, you seem broke.
+- No
+	Strange Owl Lady: Whatever... I'll just mug the next person who walks by.
+=> END

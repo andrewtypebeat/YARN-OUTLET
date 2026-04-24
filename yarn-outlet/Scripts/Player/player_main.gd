@@ -22,6 +22,7 @@ enum playerState {
 @onready var bulType = preload("res://Scenes/Objects/player_bullet.tscn")
 @onready var bulTimer = $Timer
 @onready var bulSound = $bulSound
+@onready var gameObj = $"../GameObject"
 
 @onready var explode_fx = preload("res://Scenes/Objects/Enemy/explosion_sc.tscn")
 
@@ -71,7 +72,7 @@ func _process(delta):
 		canShoot = false
 		bulTimer.start()
 		
-	if playerHP <= 0:
+	if playerHP <= 0 || gameObj.playerDead == true:
 		var explode = explode_fx.instantiate()
 		explode.position = position
 		get_parent().add_child(explode)

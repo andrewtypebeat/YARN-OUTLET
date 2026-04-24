@@ -2,12 +2,15 @@
 
 [ext_resource type="Script" uid="uid://c57y0wpaesiv3" path="res://Scripts/Player/player_walk.gd" id="1_ww4dw"]
 [ext_resource type="Texture2D" uid="uid://btftft0aiw2q4" path="res://spr_test_sprite.png" id="2_2meqa"]
+[ext_resource type="Script" uid="uid://c71g3l510fo3" path="res://Scenes/Objects/Player/area_2d.gd" id="3_f6oq4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f6oq4"]
 size = Vector2(14, 36)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2meqa"]
 radius = 7.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ky0gv"]
 
 [node name="PlayerWalk" type="CharacterBody2D" unique_id=909692556]
 script = ExtResource("1_ww4dw")
@@ -37,3 +40,10 @@ collision_mask = 16
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Marker2D/ActionableFinder" unique_id=979731615]
 position = Vector2(0, 11)
 shape = SubResource("CircleShape2D_2meqa")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1844068910]
+script = ExtResource("3_f6oq4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=969708742]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_ky0gv")

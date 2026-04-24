@@ -17,6 +17,8 @@ func _process(delta):
 	
 	if enemyHealth <= 0:
 		
+		
+		
 		var explode = explode_fx.instantiate()
 		explode.position = position
 		get_parent().add_child(explode)
@@ -25,6 +27,7 @@ func _process(delta):
 func _on_area_entered(area):
 	if area is bullet:
 		enemyHealth = enemyHealth - 1
+		gameObj.scoreT += 50
 	if area is PlayerObject:
 		enemyHealth = 0	
 	

@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://dvfoxni60nh51"
+path="res://.godot/imported/KATHY.dialogue-4983107c2f00c8e4537f7466bcda5cb0.tres"
+
+[deps]
+
+source_file="res://Dialogue/KATHY.dialogue"
+dest_files=["res://.godot/imported/KATHY.dialogue-4983107c2f00c8e4537f7466bcda5cb0.tres"]
+
+[params]
+
+defaults=true

@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://ckt0ikjv6liqo"]
+
+[ext_resource type="Script" uid="uid://cys14a0evc5ut" path="res://Scripts/level_hazard.gd" id="1_37o5p"]
+[ext_resource type="Texture2D" uid="uid://c3dlwhoojmydx" path="res://Assets/Sprites/Objects/rock_thing1.png" id="2_qqnqe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eu03y"]
+size = Vector2(18, 25)
+
+[node name="rock" type="Area2D" unique_id=396704097]
+script = ExtResource("1_37o5p")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1504025368]
+texture = ExtResource("2_qqnqe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=458230060]
+position = Vector2(0, 4.5)
+shape = SubResource("RectangleShape2D_eu03y")
